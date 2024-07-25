@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+}
+/* Estilo para los títulos */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif; /* Fuente para los títulos */
+    font-weight: bold; /* Puedes ajustar el peso de la fuente según el diseño */
+    color: #37474f;
+}
+
+:root {
+    --bg-color:  #ffff;
+    --main-color: #00abf0;
+    --text-color: #000000;
+    --second-text-color: #7d7a7a;
+    --white-color: #ffff;
+    --left-color:#ddd;
+    --cover-color: linear-gradient(45deg, #022036 ,#081b29 );
+    --pages-color: linear-gradient(90deg, #fff, #ddd);
+    --border: .125rem solid #37474f ;
+    --box-shadow: 0 0 .6rem rgba(0, 0, 0, .2);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+
+}
+
+.wrapper {
+    position: relative;
+    width: 66rem;
+    height: 35rem;
+    padding: 1rem;
+    perspective: 250rem;
+    animation: show-animate 2s forwards;
+   /*background: green;*/
+}
+
+@keyframes show-animate {
+    0%, 30% {
+        opacity: 0;
+        transform: rotate(-20deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--cover-color);
+    box-shadow: var(--box-shadow);
+    border-top-left-radius: .6rem;
+    border-bottom-left-radius: .6rem;
+    transform-origin: right;
+}
+
+.cover.cover-left {
+    z-index: -1;
+}
+
+.cover.cover-right {
+    z-index: 100;
+    transition: transform 1s cubic-bezier(.645, .045, 0.355, 1);
+}
+
+.cover.cover-right.turn {
+    transform: rotateY(180deg);
+}
+
+.book {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    perspective: 250rem;
+
+}
+
+.book .book-page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: var(--pages-color);
+    box-shadow: 0 0 .6rem rgba(0, 0, 0, .1);
+    display: flex;
+    padding: 2rem;
+
+}
+
+.book-page.page-left {
+    box-shadow: -.6rem .6rem .6rem rgba(0, 0, 0, .1);
+    background: var(--cover-color);
+
+}
+
+.history-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.history-section h4 {
+    padding-bottom: 0.2rem;
+    padding-left: 0.2rem;
+}
+.history-section p {
+    font-size: 0.8rem;
+    padding: .2rem;
+}
+
+.book-page.page-right {
+    position: absolute;
+    right: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 1s cubic-bezier(.645, .045, 0.355, 1);
+}
+
+.book-page.page-right.turn {
+    transform: rotateY(-180deg);
+
+}
+
+.book-page .page-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem 2rem;
+}
+
+.book-page .page-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem 2rem;
+}
+
+.book-page .page-front.item-0 {
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(126, 95, 63, 0.809),    /* Marrón cálido con opacidad */
+        rgba(243, 156, 18, 0.7),    /* Amarillo cálido con opacidad */
+        rgba(251, 95, 64, 0.7),     /* Naranja brillante con opacidad */
+        rgba(219, 94, 101, 0.7),    /* Rojo cálido con opacidad */
+        rgba(80, 198, 96, 0.7),     /* Verde fresco con opacidad */
+        rgba(181, 231, 188, 0.7),   /* Verde claro con opacidad */
+        rgba(193, 230, 163, 0.7)    /* Verde pastel con opacidad */
+    ), url('images/sunrise.jpg'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+   /*padding-top: 2rem;*/
+}
+
+.book-page .page-front.fin {
+    background: linear-gradient(to bottom, 
+    #212121, /* Gris oscuro */
+    #303f9f, /* Azul grisáceo oscuro */
+    #37474f, /* Azul oscuro con tonos grises */
+    #263238  /* Gris azul profundo */
+    );
+}
+
+.quote {
+    font-style: italic;
+    font-size: 0.8rem;
+    color: #fcf8f8;
+    text-align: center;
+    margin-top: 30px;
+    padding: 130px;
+}
+
+.introduction {
+    position: relative;
+    padding-top: 2rem;
+
+}
+
+
+.book-page .page-back.last {
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(126, 95, 63, 0.809),    /* Marrón cálido con opacidad */
+        rgba(243, 156, 18, 0.7),    /* Amarillo cálido con opacidad */
+        rgba(251, 95, 64, 0.7),     /* Naranja brillante con opacidad */
+        rgba(219, 94, 101, 0.7),    /* Rojo cálido con opacidad */
+        rgba(80, 198, 96, 0.7),     /* Verde fresco con opacidad */
+        rgba(181, 231, 188, 0.7),   /* Verde claro con opacidad */
+        rgba(193, 230, 163, 0.7)    /* Verde pastel con opacidad */
+    ), url('images/sunrise.jpg'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: right;
+}
+/*Susurro Nocturno*/
+.book-page .page-back.item-7 {
+    background: linear-gradient(to bottom,
+    rgba(126, 95, 63, 0.809),
+    rgba(109, 90, 76, 0.809),
+    rgba(89, 89, 89, 0.809),
+    rgba(55, 71, 79, 0.809));
+}
+
+/*Sombra de anochecer*/
+.book-page .page-front.item-6 {
+    background: linear-gradient(to bottom,
+    rgba(243, 156, 18, 0.7),
+    rgba(213, 145, 41, 0.7),
+    rgba(172, 119, 67, 0.7),
+    rgba(126, 95, 63, 0.809));
+}
+
+/*Reflejo de atardecer*/
+.book-page .page-back.item-5 {
+    background: linear-gradient(
+    to bottom,
+    rgba(251, 95, 64, 0.7),
+    rgba(245, 122, 61, 0.7),
+    rgba(247, 150, 35, 0.7),
+    rgba(243, 156, 18, 0.7)
+    );
+}
+
+/*Sabor a medio día*/
+.book-page .page-front.item-4 {
+    background: linear-gradient(
+        to bottom,
+        rgba(219, 94, 101, 0.7),
+        rgba(237, 121, 96, 0.7),
+        rgba(244, 147, 83, 0.7),
+        rgba(251, 95, 64, 0.7)
+    );
+}
+
+/*Revive a media mañana*/
+.book-page .page-back.item-3 {
+    background: linear-gradient(
+        to bottom,
+        rgba(80, 198, 96, 0.7),
+        rgba(150, 170, 98, 0.7),
+        rgba(194, 132, 99, 0.7),
+        rgba(219, 94, 101, 0.7)
+    );
+}
+
+/*Viva mañana*/
+.book-page .page-front.item-2 {
+    background: linear-gradient(
+        to bottom,
+        rgba(181, 231, 188, 0.7),
+        rgba(156, 225, 167, 0.7),
+        rgba(130, 215, 142, 0.7),
+        rgba(80, 198, 96, 0.7));
+}
+
+/*Primer rayo*/
+.book-page .page-back.item-1 {
+    background: linear-gradient(to bottom,   rgba(255, 255, 255, 0.7),
+    rgba(224, 250, 207, 0.7),
+    rgba(193, 230, 163, 0.7));
+}
+
+.book-page .page-front {
+    transform: rotateY(0deg) translateZ(1px);
+}
+
+.book-page .page-back {
+    transform: rotateY(180deg) translateZ(1px);
+}
+
+.title {
+    text-align: center;
+    padding: 1rem;
+}
+
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 9.5rem;
+    height: 3rem;
+    background: var(--main-color);
+    border: var(--border);
+    border-radius: .3rem;
+    font-size: 1rem;
+    color: var(--white-color);
+    font-weight: 500;
+    margin: 0 1rem;
+}
+.workeduc-box {
+    border-left: var(--border);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+
+.workeduc-box .workeduc-content {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.workeduc-box .workeduc-content p {
+    padding: .2rem;
+}
+
+/*
+.workeduc-box .workeduc-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -0.65rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: var(--main-color);
+    border-radius: 50%;
+}
+*/
+
+.number-page {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+/*.workeduc-box.item-1 {
+    background: url('images/raspberry.png');
+    background-size: cover;
+    background-position: right ;
+}*/
+
+.nextprev-btn {
+    position: absolute;
+    bottom: .9rem;
+    right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--second-text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
+
+.nextprev-btn:hover {
+    color: #081b29;
+}
+
+.nextprev-btn.back {
+    left: 1.5rem;
+}
+
+
+
+
+
+
+
