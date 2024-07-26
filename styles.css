@@ -377,6 +377,49 @@ body {
     left: 1.5rem;
 }
 
+/* Estilos para pantallas de tablets */
+@media (max-width: 1024px) {
+    .wrapper {
+        width: 90%;
+        height: auto;
+    }
+
+    .book .book-page {
+        padding: 1.5rem;
+    }
+}
+
+/* Estilos para pantallas de móviles */
+@media (max-width: 768px) {
+    .wrapper {
+        width: 95%;
+        height: auto;
+    }
+
+    .book .book-page {
+        padding: 1rem;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.2em; /* Ajusta el tamaño de los títulos según sea necesario */
+    }
+}
+
+/* Estilos para pantallas muy pequeñas (móviles en modo retrato) */
+@media (max-width: 480px) {
+    .wrapper {
+        width: 100%;
+        height: auto;
+    }
+
+    .book .book-page {
+        padding: 0.5rem;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1em; /* Ajusta el tamaño de los títulos según sea necesario */
+    }
+}
 
 
 
