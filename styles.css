@@ -402,7 +402,7 @@ body {
 /* Estilos para pantallas de móviles muy pequeñas*/
 @media (max-width: 480px) {
     .history-section p {
-        font-size: 0.4rem;
+        font-size: 0.38rem;
     }
     .quote {
         font-size: 0.4rem;
