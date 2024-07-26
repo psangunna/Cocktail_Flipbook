@@ -407,6 +407,7 @@ body {
     .quote {
         font-size: 0.4rem;
         font-style: italic;
+        padding: 1rem;
     }
 }
 
