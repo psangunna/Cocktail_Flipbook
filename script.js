@@ -1,4 +1,5 @@
 
+// function next-prev button
 const pageTurnBtn = document.querySelectorAll('.nextprev-btn');
 
 pageTurnBtn.forEach((el, index) => {
@@ -39,30 +40,47 @@ function reverseIndex() {
     console.log('Updated pageNumber:', pageNumber);
 }
 
+//back to init -  button when click
+const backProfileBtn = document.querySelector('.back-init');
+backProfileBtn.onclick = () => {
+    pages.forEach((_, index) => {
+        setTimeout(() => {
+            reverseIndex();
+            pages[pageNumber].classList.remove('turn');
+
+            setTimeout(() => {
+                reverseIndex();
+                pages[pageNumber].style.zIndex = 10 + index;
+            }, 500)
+        }, (index + 1) * 100 + 200 )
+    })
+
+}
 
 //Opening animation
 const coverRight = document.querySelector('.cover.cover-right');
 const pageLeft = document.querySelector('.book-page.page-left');
+
 // Verificar si coverRight y pageLeft están definidos
-console.log('coverRight:', coverRight);
+/*console.log('coverRight:', coverRight);
 console.log('pageLeft:', pageLeft);
-console.log('pages:', pages, pages[pageNumber].classList);
+console.log('pages:', pages, pages[pageNumber].classList);*/
 
 //opening animation (cover right animation)
 setTimeout(() => {
     coverRight.classList.add('turn');
     console.log('Cover right: class "turn" added');
-}, 2200) //cubierta
+}, 2200) //first blue cover
 
 setTimeout(() => {
     coverRight.style.zIndex = -1;
     console.log('Cover right: zIndex set to -1');
-}, 2900) //pagina de contacto tiempo en el que aparece
+}, 2900) //the last page
 
 //opening animation (page left or profile page animation)
 setTimeout(() => {
     pageLeft.style.zIndex = 20;
-    console.log('Page left: zIndex set to 20'); //pagina cero
+    console.log('Page left: zIndex set to 20'); //zero page
 }, 3300)
 
 

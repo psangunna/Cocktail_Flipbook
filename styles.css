@@ -297,7 +297,6 @@ body {
     padding: 1rem;
 }
 
-
 .btn {
     display: inline-flex;
     justify-content: center;
@@ -312,34 +311,23 @@ body {
     font-weight: 500;
     margin: 0 1rem;
 }
-.workeduc-box {
+.ingredients-box {
     border-left: var(--border);
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
 
-.workeduc-box .workeduc-content {
+.ingredients-box .ingredients-content {
     position: relative;
     padding-left: 1rem;
 }
 
-.workeduc-box .workeduc-content p {
+.ingredients-box .ingredients-content p {
     padding: .2rem;
 }
 
-/*
-.workeduc-box .workeduc-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -0.65rem;
-    width: 1.2rem;
-    height: 1.2rem;
-    background: var(--main-color);
-    border-radius: 50%;
-}
-*/
+
 
 .number-page {
     position: absolute;
@@ -348,11 +336,6 @@ body {
     transform: translateX(-50%);
 
 }
-/*.workeduc-box.item-1 {
-    background: url('images/raspberry.png');
-    background-size: cover;
-    background-position: right ;
-}*/
 
 .nextprev-btn {
     position: absolute;
@@ -377,7 +360,49 @@ body {
     left: 1.5rem;
 }
 
-/* Estilos para pantallas de tablets */
+.back-init {
+    position: absolute;
+    bottom: 1.2rem;
+    right: 2rem;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: var(--border);
+    border-radius: 3rem;
+    font-size: 1.1rem;
+    color:  #081b29;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+
+}
+
+.back-init:hover {
+
+    background:  #081b29;
+    color: var(--white-color);
+}
+
+.back-init p {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(.5);
+    font-size: 0.8rem;
+    color:  #081b29;
+    opacity: 0;
+    transition: .5s;
+}
+
+.back-init:hover p {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    top: -1.8rem;
+
+}
+
+/*  tablet screen styles */
 @media (max-width: 1024px) {
     .history-section p {
         font-size: 0.7rem;
@@ -386,9 +411,12 @@ body {
         font-size: 0.7rem;
         font-style: italic;
     }
+    .back-init p {
+        font-size: 0.7rem;
+    }
 }
 
-/* Estilos para pantallas de móviles */
+/* mobile screen styles */
 @media (max-width: 768px) {
     .history-section p {
         font-size: 0.5rem;
@@ -397,19 +425,40 @@ body {
         font-size: 0.5rem;
         font-style: italic;
     }
+
+    .back-init {
+        right: 1.5rem;
+        width:1.5rem;
+        height: 1.5rem;
+        font-size: 0.9;
+    }
+    
+    .back-init p {
+        font-size: 0.5rem;
+    }
 }
 
-/* Estilos para pantallas de móviles muy pequeñas*/
+/* small mobile screen styles*/
 @media (max-width: 480px) {
     .history-section p {
-        font-size: 0.38rem;
+        font-size: 0.4rem;
     }
     .quote {
         font-size: 0.4rem;
         font-style: italic;
     }
-}
 
+    .back-init {
+        right: 1.5rem;
+        width:1.5rem;
+        height: 1.5rem;
+        font-size: 0.9;
+    }
+
+    .back-init p {
+        font-size: 0.4rem;
+    }
+}
 
 
 
